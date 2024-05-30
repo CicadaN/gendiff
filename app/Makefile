@@ -8,5 +8,3 @@ run-dist:
 
 clean:
 	.\gradlew clean
-
-
