@@ -1,5 +1,6 @@
 plugins {
     application
+    id ("jacoco")
     id("java")
     id("checkstyle")
 }
@@ -20,8 +21,9 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
+tasks.jacocoTestReport { reports { xml.required.set(true) } }
+
 tasks.test {
     useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
 }
-
-
