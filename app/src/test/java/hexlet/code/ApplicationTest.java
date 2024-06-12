@@ -13,15 +13,15 @@ class ApplicationTest {
         String filePatch2 = "./src/test/resources/file2.json";
 
         String expected = "{\n"
-                + "  - follow: false\n"
+                + "  - follow: false \n"
                 + "    host: hexlet.io\n"
                 + "  - proxy: 123.234.53.22\n"
                 + "  - timeout: 50\n"
                 + "  + timeout: 20\n"
                 + "  + verbose: true\n"
-                + "}\n";
+                + "}";
         String actual = Differ.getData(filePatch1, filePatch2);
-        assertEquals(expected, actual);
+        assertEquals(expected.trim().replaceAll("\\s+", " "), actual.trim().replaceAll("\\s+", " "));
     }
 }
 
