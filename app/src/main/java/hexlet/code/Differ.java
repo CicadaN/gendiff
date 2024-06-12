@@ -15,7 +15,7 @@ public class Differ {
         byte[] fileContent = Files.readAllBytes(Paths.get(filepath));
         return mapper.readValue(fileContent, Map.class);
     }
-    public static String getData(String filepath1, String filepath2) throws Exception {
+    public static String getData(String filepath1, String filepath2) throws IOException {
         Map<String, Object> map1 = parseJson(filepath1);
         Map<String, Object> map2 = parseJson(filepath2);
 
