@@ -22,7 +22,6 @@ public class Differ {
         Map<String, Object> sortedMap1 = new TreeMap<>(map1);
         Map<String, Object> sortedMap2 = new TreeMap<>(map2);
 
-
         StringBuilder result = new StringBuilder("{\n");
 
         for (String key : sortedMap1.keySet()) {
