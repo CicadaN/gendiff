@@ -1,23 +1,14 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
-import java.nio.file.Paths;
-import java.nio.file.Files;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class Differ {
 
-    public static Map<String, Object> parseJson(String filepath) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        byte[] fileContent = Files.readAllBytes(Paths.get(filepath));
-        return mapper.readValue(fileContent, Map.class);
-    }
     public static String getData(String filepath1, String filepath2) throws IOException {
-        Map<String, Object> map1 = parseJson(filepath1);
-        Map<String, Object> map2 = parseJson(filepath2);
+        Map<String, Object> map1 = Parser.getParse(filepath1);
+        Map<String, Object> map2 = Parser.getParse(filepath2);
 
         Map<String, Object> sortedMap1 = new TreeMap<>(map1);
         Map<String, Object> sortedMap2 = new TreeMap<>(map2);
@@ -25,13 +16,16 @@ public class Differ {
         StringBuilder result = new StringBuilder("{\n");
 
         for (String key : sortedMap1.keySet()) {
+            Object value1 = sortedMap1.get(key);
+            Object value2 = sortedMap2.get(key);
+
             if (!sortedMap2.containsKey(key)) {
-                result.append("  - ").append(key).append(": ").append(sortedMap1.get(key)).append("\n");
-            } else if (!sortedMap1.get(key).equals(sortedMap2.get(key))) {
-                result.append("  - ").append(key).append(": ").append(sortedMap1.get(key)).append("\n");
-                result.append("  + ").append(key).append(": ").append(sortedMap2.get(key)).append("\n");
+                result.append("  - ").append(key).append(": ").append(value1).append("\n");
+            } else if (value1 == null || value2 == null || !value1.equals(value2)) {
+                result.append("  - ").append(key).append(": ").append(value1).append("\n");
+                result.append("  + ").append(key).append(": ").append(value2).append("\n");
             } else {
-                result.append("    ").append(key).append(": ").append(sortedMap1.get(key)).append("\n");
+                result.append("    ").append(key).append(": ").append(value1).append("\n");
             }
         }
 
@@ -44,5 +38,4 @@ public class Differ {
         result.append("}");
         return result.toString();
     }
-
 }

@@ -23,5 +23,19 @@ class ApplicationTest {
         String actual = Differ.getData(filePatch1, filePatch2);
         assertEquals(expected.trim().replaceAll("\\s+", " "), actual.trim().replaceAll("\\s+", " "));
     }
+
+    @Test
+    public void yamlTest() throws IOException {
+        String filePatch1 = "./src/test/resources/testFileYaml1.yaml";
+        String filePatch2 = "./src/test/resources/testFileYaml2.yaml";
+
+        String expected = "{\n" +
+                "  - default: null\n" +
+                "  + default: not_null\n" +
+                "    school: hexlet\n" +
+                "}\n";
+        String actual = Differ.getData(filePatch1, filePatch2);
+        assertEquals(expected.trim().replaceAll("\\s+", " "), actual.trim().replaceAll("\\s+", " "));
+    }
 }
 
