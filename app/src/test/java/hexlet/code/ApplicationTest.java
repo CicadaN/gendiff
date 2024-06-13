@@ -37,5 +37,13 @@ class ApplicationTest {
         String actual = Differ.getData(filePatch1, filePatch2);
         assertEquals(expected.trim().replaceAll("\\s+", " "), actual.trim().replaceAll("\\s+", " "));
     }
+
+//    @Test
+//    public void unsupportedFormat() throws IOException {
+//        String filePatch1 = "./src/test/resources/testFileYaml1.txt";
+//        String filePatch2 = "./src/test/resources/testFileYaml2.txt";
+//
+//
+//    }
 }
 

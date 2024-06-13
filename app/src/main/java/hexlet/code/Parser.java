@@ -29,7 +29,7 @@ public class Parser {
         }
         if (extension.equals("json")) {
             return parseJson(filepath);
-        } else if (extension.equals("yaml")) {
+        } else if (extension.equals("yaml") || extension.equals("yml")) {
             return parseYaml(filepath);
         } else {
             throw new IllegalArgumentException("Unsupported format: " + extension);
