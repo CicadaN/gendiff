@@ -8,3 +8,6 @@
 
 ## Result yaml diff
 ![result_yaml_parser.jpg](app%2Fsrc%2Fmain%2Fresources%2Fresult_yaml_parser.jpg)
+
+## Result formatter diff
+![res_formater.jpg](app%2Fsrc%2Fmain%2Fresources%2Fres_formater.jpg)
