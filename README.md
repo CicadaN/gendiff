@@ -11,3 +11,6 @@
 
 ## Result formatter diff
 ![res_formater.jpg](app%2Fsrc%2Fmain%2Fresources%2Fres_formater.jpg)
+
+## Result plain formatter
+![plain_format.jpg](app%2Fsrc%2Fmain%2Fresources%2Fplain_format.jpg)

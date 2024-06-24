@@ -7,11 +7,11 @@ import java.util.LinkedHashMap;
 
 public class Differ {
 
-    public static String getData(String filepath1, String filepath2) throws IOException {
-        return getData(filepath1, filepath2, "stylish");
+    public static String generate(String filepath1, String filepath2) throws IOException {
+        return generate(filepath1, filepath2, "stylish");
     }
 
-    public static String getData(String filepath1, String filepath2, String format) throws IOException {
+    public static String generate(String filepath1, String filepath2, String format) throws IOException {
         Map<String, Object> map1 = Parser.getParse(filepath1);
         Map<String, Object> map2 = Parser.getParse(filepath2);
 
@@ -27,13 +27,13 @@ public class Differ {
 
         for (String key : allKeys.keySet()) {
             if (!map1.containsKey(key)) {
-                diff.put(key, new DiffEntry(DiffType.ADDED, null, map2.get(key)));
+                diff.put(key, new DiffEntry(DiffEntry.ADDED, null, map2.get(key)));
             } else if (!map2.containsKey(key)) {
-                diff.put(key, new DiffEntry(DiffType.REMOVED, map1.get(key), null));
+                diff.put(key, new DiffEntry(DiffEntry.REMOVED, map1.get(key), null));
             } else if (!isEqual(map1.get(key), map2.get(key))) {
-                diff.put(key, new DiffEntry(DiffType.CHANGED, map1.get(key), map2.get(key)));
+                diff.put(key, new DiffEntry(DiffEntry.CHANGED, map1.get(key), map2.get(key)));
             } else {
-                diff.put(key, new DiffEntry(DiffType.UNCHANGED, map1.get(key), map2.get(key)));
+                diff.put(key, new DiffEntry(DiffEntry.UNCHANGED, map1.get(key), map2.get(key)));
             }
         }
 

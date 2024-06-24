@@ -1,17 +1,22 @@
 package hexlet.code;
 
-class DiffEntry {
-    private DiffType type;
-    private Object oldValue;
-    private Object newValue;
+public class DiffEntry {
+    public static final String ADDED = "ADDED";
+    public static final String REMOVED = "REMOVED";
+    public static final String CHANGED = "CHANGED";
+    public static final String UNCHANGED = "UNCHANGED";
 
-    public DiffEntry(DiffType type, Object oldValue, Object newValue) {
+    private final String type;
+    private final Object oldValue;
+    private final Object newValue;
+
+    public DiffEntry(String type, Object oldValue, Object newValue) {
         this.type = type;
         this.oldValue = oldValue;
         this.newValue = newValue;
     }
 
-    public DiffType getType() {
+    public String getType() {
         return type;
     }
 
@@ -22,11 +27,4 @@ class DiffEntry {
     public Object getNewValue() {
         return newValue;
     }
-}
-
-enum DiffType {
-    ADDED,
-    REMOVED,
-    CHANGED,
-    UNCHANGED
 }
