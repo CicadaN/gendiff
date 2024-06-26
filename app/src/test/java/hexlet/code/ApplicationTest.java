@@ -101,7 +101,11 @@ class ApplicationTest {
         String filePatch2 = "./src/test/resources/file2.json";
         String formatName = "json";
 
-        String expected = "{\"follow\":{\"type\":\"REMOVED\",\"value\":false},\"host\":{\"type\":\"UNCHANGED\",\"value\":\"hexlet.io\"},\"proxy\":{\"type\":\"REMOVED\",\"value\":\"123.234.53.22\"},\"timeout\":{\"type\":\"CHANGED\",\"oldValue\":50,\"newValue\":20},\"verbose\":{\"type\":\"ADDED\",\"value\":true}}";
+        String expected = "{\"follow\":{\"type\":\"REMOVED\",\"value\":false},"
+               + "\"host\":{\"type\":\"UNCHANGED\",\"value\":\"hexlet.io\"},\"proxy\" "
+               + ":{\"type\":\"REMOVED\",\"value\":\"123.234.53.22\"},\"timeout\":"
+               + "{\"type\":\"CHANGED\",\"oldValue\":50,\"newValue\":20},"
+               + "\"verbose\":{\"type\":\"ADDED\",\"value\":true}}";
         String actual = Differ.generate(filePatch1, filePatch2, formatName);
 
         ObjectMapper objectMapper = new ObjectMapper();
