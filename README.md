@@ -14,3 +14,6 @@
 
 ## Result plain formatter
 ![plain_format.jpg](app%2Fsrc%2Fmain%2Fresources%2Fplain_format.jpg)
+
+## Result json formatter
+![json_res.jpg](app%2Fsrc%2Fmain%2Fresources%2Fjson_res.jpg)

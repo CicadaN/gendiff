@@ -1,17 +1,16 @@
 package hexlet.code;
 
-import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.LinkedHashMap;
 
 public class Differ {
 
-    public static String generate(String filepath1, String filepath2) throws IOException {
+    public static String generate(String filepath1, String filepath2) throws Exception {
         return generate(filepath1, filepath2, "stylish");
     }
 
-    public static String generate(String filepath1, String filepath2, String format) throws IOException {
+    public static String generate(String filepath1, String filepath2, String format) throws Exception {
         Map<String, Object> map1 = Parser.getParse(filepath1);
         Map<String, Object> map2 = Parser.getParse(filepath2);
 

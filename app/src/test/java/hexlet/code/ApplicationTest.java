@@ -1,14 +1,14 @@
 package hexlet.code;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
-import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ApplicationTest {
 
     @Test
-    public void firstTest() throws IOException {
+    public void firstTest() throws Exception {
         String filePatch1 = "./src/test/resources/file1.json";
         String filePatch2 = "./src/test/resources/file2.json";
 
@@ -25,7 +25,7 @@ class ApplicationTest {
     }
 
     @Test
-    public void yamlTest() throws IOException {
+    public void yamlTest() throws Exception {
         String filePatch1 = "./src/test/resources/testFileYaml1.yaml";
         String filePatch2 = "./src/test/resources/testFileYaml2.yaml";
 
@@ -39,7 +39,7 @@ class ApplicationTest {
     }
 
     @Test
-    public void testDoubleStructure() throws IOException {
+    public void testDoubleStructure() throws Exception {
         String filePatch1 = "./src/test/resources/testFormater1.json";
         String filePatch2 = "./src/test/resources/testFormater2.json";
 
@@ -73,34 +73,39 @@ class ApplicationTest {
     }
 
     @Test
-    public void TestPlainFormat() throws IOException {
+    public void testPlainFormat() throws Exception {
         String filePatch1 = "./src/test/resources/testFormater1.json";
         String filePatch2 = "./src/test/resources/testFormater2.json";
         String formatName = "plain";
 
-        String expected = "Property 'chars2' was updated. From [complex value] to false\n" +
-                "Property 'checked' was updated. From false to true\n" +
-                "Property 'default' was updated. From null to [complex value]\n" +
-                "Property 'id' was updated. From 45 to null\n" +
-                "Property 'key1' was removed\n" +
-                "Property 'key2' was added with value: 'value2'\n" +
-                "Property 'numbers2' was updated. From [complex value] to [complex value]\n" +
-                "Property 'numbers3' was removed\n" +
-                "Property 'numbers4' was added with value: [complex value]\n" +
-                "Property 'obj1' was added with value: [complex value]\n" +
-                "Property 'setting1' was updated. From 'Some value' to 'Another value'\n" +
-                "Property 'setting2' was updated. From 200 to 300\n" +
-                "Property 'setting3' was updated. From true to 'none'\n";
+        String expected = "Property 'chars2' was updated. From [complex value] to false\n"
+                + "Property 'checked' was updated. From false to true\n"
+                + "Property 'default' was updated. From null to [complex value]\n"
+                + "Property 'id' was updated. From 45 to null\n"
+                + "Property 'key1' was removed\n"
+                + "Property 'key2' was added with value: 'value2'\n"
+                + "Property 'numbers2' was updated. From [complex value] to [complex value]\n"
+                + "Property 'numbers3' was removed\n"
+                + "Property 'numbers4' was added with value: [complex value]\n"
+                + "Property 'obj1' was added with value: [complex value]\n"
+                + "Property 'setting1' was updated. From 'Some value' to 'Another value'\n"
+                + "Property 'setting2' was updated. From 200 to 300\n"
+                + "Property 'setting3' was updated. From true to 'none'\n";
         String actual = Differ.generate(filePatch1, filePatch2, formatName);
         assertEquals(expected.trim().replaceAll("\\s+", " "), actual.trim().replaceAll("\\s+", " "));
     }
 
-//    @Test
-//    public void unsupportedFormat() throws IOException {
-//        String filePatch1 = "./src/test/resources/testFileYaml1.txt";
-//        String filePatch2 = "./src/test/resources/testFileYaml2.txt";
-//
-//
-//    }
-}
+    @Test
+    public void testJsonFormat() throws Exception {
+        String filePatch1 = "./src/test/resources/file1.json";
+        String filePatch2 = "./src/test/resources/file2.json";
+        String formatName = "json";
 
+        String expected = "{\"follow\":{\"type\":\"REMOVED\",\"value\":false},\"host\":{\"type\":\"UNCHANGED\",\"value\":\"hexlet.io\"},\"proxy\":{\"type\":\"REMOVED\",\"value\":\"123.234.53.22\"},\"timeout\":{\"type\":\"CHANGED\",\"oldValue\":50,\"newValue\":20},\"verbose\":{\"type\":\"ADDED\",\"value\":true}}";
+        String actual = Differ.generate(filePatch1, filePatch2, formatName);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        assertEquals(objectMapper.readTree(expected), objectMapper.readTree(actual));
+    }
+
+}
