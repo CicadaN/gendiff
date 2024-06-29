@@ -1,0 +1,4 @@
+Property 'follow' was updated. From false to true
+Property 'numbers1' was updated. From [complex value] to [complex value]
+Property 'numbers2' was updated. From [complex value] to [complex value]
+Property 'timeout' was updated. From 2 to 50

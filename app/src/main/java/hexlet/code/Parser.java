@@ -9,15 +9,15 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 public class Parser {
-    public static Map<String, Object> parseJson(String filepath) throws IOException {
+    public static Map<String, Object> parseJson(String content) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        byte[] fileContent = Files.readAllBytes(Paths.get(filepath));
+        byte[] fileContent = Files.readAllBytes(Paths.get(content));
         return mapper.readValue(fileContent, Map.class);
     }
 
-    public static Map<String, Object> parseYaml(String filepath) throws IOException {
+    public static Map<String, Object> parseYaml(String content) throws IOException {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-        byte[] fileContent = Files.readAllBytes(Paths.get(filepath));
+        byte[] fileContent = Files.readAllBytes(Paths.get(content));
         return mapper.readValue(fileContent, Map.class);
     }
 
@@ -35,4 +35,5 @@ public class Parser {
             throw new IllegalArgumentException("Unsupported format: " + extension);
         }
     }
+
 }
