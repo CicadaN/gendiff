@@ -36,81 +36,83 @@ class ApplicationTest {
 
     @Test
     public void testJsonToJson() throws Exception {
-        String filePatch1 = getFixturePath("file1.json").toString();
-        String filePatch2 = getFixturePath("file2.json").toString();
+        String filePath1 = getFixturePath("file1.json").toString();
+        String filePath2 = getFixturePath("file2.json").toString();
 
         String expected = resultJson;
-        String actual = Differ.generate(filePatch1, filePatch2, "json");
+        String actual = Differ.generate(filePath1, filePath2, "json");
         assertEquals(expected, actual);
     }
 
     @Test
     public void testJsonToPlain() throws Exception {
-        String filePatch1 = getFixturePath("file1.json").toString();
-        String filePatch2 = getFixturePath("file2.json").toString();
+        String filePath1 = getFixturePath("file1.json").toString();
+        String filePath2 = getFixturePath("file2.json").toString();
 
         String expected = resultPlain;
-        String actual = Differ.generate(filePatch1, filePatch2, "plain");
+        String actual = Differ.generate(filePath1, filePath2, "plain");
         assertEquals(expected, actual);
     }
 
 
     @Test
     public void testJsonToStylish() throws Exception {
-        String filePatch1 = getFixturePath("file1.json").toString();
-        String filePatch2 = getFixturePath("file2.json").toString();
+        String filePath1 = getFixturePath("file1.json").toString();
+        String filePath2 = getFixturePath("file2.json").toString();
 
         String expected = resultStylish;
-        String actual = Differ.generate(filePatch1, filePatch2, "stylish");
+        String actual = Differ.generate(filePath1, filePath2, "stylish");
         assertEquals(expected, actual);
     }
 
     @Test
     public void testJsonToDefault() throws Exception {
-        String filePatch1 = getFixturePath("file1.json").toString();
-        String filePatch2 = getFixturePath("file2.json").toString();
+        String filePath1 = getFixturePath("file1.json").toString();
+        String filePath2 = getFixturePath("file2.json").toString();
 
         String expected = resultDefault;
-        String actual = Differ.generate(filePatch1, filePatch2);
-        assertEquals(expected, actual);    }
+        String actual = Differ.generate(filePath1, filePath2);
+        assertEquals(expected, actual);
+    }
 
     @Test
     public void testYamlToJson() throws Exception {
-        String filePatch1 = getFixturePath("file1.json").toString();
-        String filePatch2 = getFixturePath("file2.json").toString();
+        String filePath1 = getFixturePath("file1.json").toString();
+        String filePath2 = getFixturePath("file2.json").toString();
 
         String expected = resultDefault;
-        String actual = Differ.generate(filePatch1, filePatch2);
-        assertEquals(expected, actual);    }
+        String actual = Differ.generate(filePath1, filePath2);
+        assertEquals(expected, actual);
+    }
 
     @Test
     public void testYamlToPlain() throws Exception {
-        String filePatch1 = getFixturePath("file3.yaml").toString();
-        String filePatch2 = getFixturePath("file4.yaml").toString();
+        String filePath1 = getFixturePath("file3.yaml").toString();
+        String filePath2 = getFixturePath("file4.yaml").toString();
 
         String expected = resultPlain;
-        String actual = Differ.generate(filePatch1, filePatch2, "plain");
+        String actual = Differ.generate(filePath1, filePath2, "plain");
         assertEquals(expected, actual);
     }
 
 
     @Test
     public void testYamlToStylish() throws Exception {
-        String filePatch1 = getFixturePath("file3.yaml").toString();
-        String filePatch2 = getFixturePath("file4.yaml").toString();
+        String filePath1 = getFixturePath("file3.yaml").toString();
+        String filePath2 = getFixturePath("file4.yaml").toString();
 
         String expected = resultStylish;
-        String actual = Differ.generate(filePatch1, filePatch2, "stylish");
+        String actual = Differ.generate(filePath1, filePath2, "stylish");
         assertEquals(expected, actual);
     }
 
     @Test
     public void tesYamlToDefault() throws Exception {
-        String filePatch1 = getFixturePath("file3.yaml").toString();
-        String filePatch2 = getFixturePath("file4.yaml").toString();
+        String filePath1 = getFixturePath("file3.yaml").toString();
+        String filePath2 = getFixturePath("file4.yaml").toString();
 
         String expected = resultDefault;
-        String actual = Differ.generate(filePatch1, filePatch2);
+        String actual = Differ.generate(filePath1, filePath2);
         assertEquals(expected.trim().replaceAll("\\s+", " "),
                 actual.trim().replaceAll("\\s+", " "));
     }

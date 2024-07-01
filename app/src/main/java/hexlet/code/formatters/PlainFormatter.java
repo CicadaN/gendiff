@@ -32,7 +32,7 @@ public class PlainFormatter {
             }
         }
 
-        return result.toString().trim();
+        return result.toString();
     }
 
     private static String formatValue(Object value) {

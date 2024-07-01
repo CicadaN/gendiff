@@ -18,8 +18,10 @@ public class Comparator {
                 diff.put(key, new DiffEntry(DiffEntry.REMOVED, map1.get(key), null));
             } else if (!Objects.equals(map1.get(key), map2.get(key))) {
                 diff.put(key, new DiffEntry(DiffEntry.CHANGED, map1.get(key), map2.get(key)));
-            } else {
+            } else if (Objects.equals(map1.get(key), map2.get(key))) {
                 diff.put(key, new DiffEntry(DiffEntry.UNCHANGED, map1.get(key), map2.get(key)));
+            } else {
+                throw new RuntimeException("Unknown status: " + key);
             }
         }
 
