@@ -1,6 +1,6 @@
 package hexlet.code;
 
-public class DiffEntry {
+public final class DiffEntry {
     public static final String ADDED = "ADDED";
     public static final String REMOVED = "REMOVED";
     public static final String CHANGED = "CHANGED";

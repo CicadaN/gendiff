@@ -51,8 +51,7 @@ class ApplicationTest {
 
         String expected = resultPlain;
         String actual = Differ.generate(filePatch1, filePatch2, "plain");
-        assertEquals(expected.trim().replaceAll("\\s+", " "),
-                actual.trim().replaceAll("\\s+", " "));
+        assertEquals(expected, actual);
     }
 
 
@@ -63,8 +62,7 @@ class ApplicationTest {
 
         String expected = resultStylish;
         String actual = Differ.generate(filePatch1, filePatch2, "stylish");
-        assertEquals(expected.trim().replaceAll("\\s+", " "),
-                actual.trim().replaceAll("\\s+", " "));
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -74,9 +72,7 @@ class ApplicationTest {
 
         String expected = resultDefault;
         String actual = Differ.generate(filePatch1, filePatch2);
-        assertEquals(expected.trim().replaceAll("\\s+", " "),
-                actual.trim().replaceAll("\\s+", " "));
-    }
+        assertEquals(expected, actual);    }
 
     @Test
     public void testYamlToJson() throws Exception {
@@ -85,9 +81,7 @@ class ApplicationTest {
 
         String expected = resultDefault;
         String actual = Differ.generate(filePatch1, filePatch2);
-        assertEquals(expected.trim().replaceAll("\\s+", " "),
-                actual.trim().replaceAll("\\s+", " "));
-    }
+        assertEquals(expected, actual);    }
 
     @Test
     public void testYamlToPlain() throws Exception {
@@ -96,8 +90,7 @@ class ApplicationTest {
 
         String expected = resultPlain;
         String actual = Differ.generate(filePatch1, filePatch2, "plain");
-        assertEquals(expected.trim().replaceAll("\\s+", " "),
-                actual.trim().replaceAll("\\s+", " "));
+        assertEquals(expected, actual);
     }
 
 
@@ -108,8 +101,7 @@ class ApplicationTest {
 
         String expected = resultStylish;
         String actual = Differ.generate(filePatch1, filePatch2, "stylish");
-        assertEquals(expected.trim().replaceAll("\\s+", " "),
-                actual.trim().replaceAll("\\s+", " "));
+        assertEquals(expected, actual);
     }
 
     @Test
