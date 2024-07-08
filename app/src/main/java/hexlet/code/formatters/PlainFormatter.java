@@ -4,10 +4,11 @@ import hexlet.code.DiffEntry;
 
 import java.util.Map;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class PlainFormatter {
     public static String format(Map<String, Object> diff) {
-        StringBuilder result = new StringBuilder();
+        StringJoiner result = new StringJoiner("\n");
 
         for (Map.Entry<String, Object> entry : diff.entrySet()) {
             String key = entry.getKey();
@@ -15,16 +16,16 @@ public class PlainFormatter {
 
             switch (diffEntry.getType()) {
                 case DiffEntry.ADDED:
-                    result.append("Property '").append(key).append("' was added with value: ")
-                            .append(formatValue(diffEntry.getNewValue())).append("\n");
+                    result.add("Property '" + key + "' was added with value: " +
+                            formatValue(diffEntry.getNewValue()));
                     break;
                 case DiffEntry.REMOVED:
-                    result.append("Property '").append(key).append("' was removed\n");
+                    result.add("Property '" + key + "' was removed");
                     break;
                 case DiffEntry.CHANGED:
-                    result.append("Property '").append(key).append("' was updated. From ")
-                            .append(formatValue(diffEntry.getOldValue())).append(" to ")
-                            .append(formatValue(diffEntry.getNewValue())).append("\n");
+                    result.add("Property '" + key + "' was updated. From " +
+                            formatValue(diffEntry.getOldValue()) + " to " +
+                            formatValue(diffEntry.getNewValue()));
                     break;
                 case DiffEntry.UNCHANGED:
                     break;
