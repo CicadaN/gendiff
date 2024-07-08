@@ -16,16 +16,16 @@ public class PlainFormatter {
 
             switch (diffEntry.getType()) {
                 case DiffEntry.ADDED:
-                    result.add("Property '" + key + "' was added with value: " +
-                            formatValue(diffEntry.getNewValue()));
+                    result.add("Property '" + key + "' was added with value: "
+                            + formatValue(diffEntry.getNewValue()));
                     break;
                 case DiffEntry.REMOVED:
                     result.add("Property '" + key + "' was removed");
                     break;
                 case DiffEntry.CHANGED:
-                    result.add("Property '" + key + "' was updated. From " +
-                            formatValue(diffEntry.getOldValue()) + " to " +
-                            formatValue(diffEntry.getNewValue()));
+                    result.add("Property '" + key + "' was updated. From "
+                            + formatValue(diffEntry.getOldValue()) + " to "
+                            + formatValue(diffEntry.getNewValue()));
                     break;
                 case DiffEntry.UNCHANGED:
                     break;
