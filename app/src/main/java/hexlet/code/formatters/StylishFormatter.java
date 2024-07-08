@@ -36,7 +36,7 @@ public class StylishFormatter {
             }
         }
 
-        result.append("}\n");
+        result.append("}");
         return result.toString();
     }
 
