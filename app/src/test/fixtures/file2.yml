@@ -1,0 +1,13 @@
+timeout: 20
+verbose: true
+host: hexlet.io
+logs:
+  - error
+  - warning
+follow: true
+options:
+  verbose: false
+  timeout: 30
+  retry: 10
+numbers: [1, 2, 3, 4, 5]
+chars: [a, b, c, d]

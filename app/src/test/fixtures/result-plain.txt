@@ -1,0 +1,8 @@
+Property 'chars' was updated. From [complex value] to [complex value]
+Property 'follow' was updated. From false to true
+Property 'logs' was updated. From null to [complex value]
+Property 'numbers' was updated. From [complex value] to [complex value]
+Property 'options' was updated. From [complex value] to [complex value]
+Property 'proxy' was removed
+Property 'timeout' was updated. From 50 to 20
+Property 'verbose' was added with value: true

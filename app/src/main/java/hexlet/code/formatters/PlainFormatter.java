@@ -23,7 +23,8 @@ public class PlainFormatter {
                     break;
                 case DiffEntry.CHANGED:
                     result.append("Property '").append(key).append("' was updated. From ")
-                            .append(formatValue(diffEntry.getOldValue())).append(" to ");
+                            .append(formatValue(diffEntry.getOldValue())).append(" to ")
+                            .append(formatValue(diffEntry.getNewValue())).append("\n");
                     break;
                 case DiffEntry.UNCHANGED:
                     break;

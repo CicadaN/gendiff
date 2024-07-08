@@ -1,0 +1,17 @@
+{
+  - chars: [a, b, c]
+  + chars: [a, b, c, d]
+  - follow: false
+  + follow: true
+    host: hexlet.io
+  - logs: null
+  + logs: [error, warning]
+  - numbers: [1, 2, 3, 4]
+  + numbers: [1, 2, 3, 4, 5]
+  - options: {verbose=true, retry=5}
+  + options: {verbose=false, timeout=30, retry=10}
+  - proxy: 123.234.53.22
+  - timeout: 50
+  + timeout: 20
+  + verbose: true
+}

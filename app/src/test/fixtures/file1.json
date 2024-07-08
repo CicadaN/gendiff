@@ -1,10 +1,13 @@
 {
-  "default": null,
-  "school": "hexlet",
-  "numbers1": [2, 3, 4, 5],
-  "numbers2": [2, 0, 0, 7],
   "host": "hexlet.io",
-  "timeout": 2,
+  "timeout": 50,
   "proxy": "123.234.53.22",
-  "follow": false
+  "follow": false,
+  "logs": null,
+  "options": {
+    "verbose": true,
+    "retry": 5
+  },
+  "numbers": [1, 2, 3, 4],
+  "chars": ["a", "b", "c"]
 }
